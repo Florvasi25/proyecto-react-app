@@ -32,11 +32,47 @@
 }
 
 .containerCuerpoPrincipal {
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.textoCard {
+    padding-bottom: 15px;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.textoCard .principal {
+    padding-bottom: 15px;
+    font-size: 25px;
+}
+
+.botonCard {
     border: solid;
     border-color: black;
-    margin: 50px;
+    margin-top: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.imgCard {
+    width: 100%;
+    block-size: auto;
+}
+.cardBody {
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+    border-width: 2px;
+    margin: 15px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 100px 0;
+    width: 200px;
+    padding: 15px;
 }

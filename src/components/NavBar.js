@@ -1,4 +1,5 @@
-import CartWidget from "../components/CartWidget"
+import CartWidget from "./CartWidget"
+import {Link, NavLink } from 'react-router-dom'
 
 const NavBar = () => {
 
@@ -11,9 +12,9 @@ const NavBar = () => {
         <div>
             <nav className="barraNavegacion">
                 <ul className="contenedorNav">
-                    <li className="boton">Botón</li>
-                    <li className="boton">Botón</li>
-                    <li className="boton" onClick={handleClick}>Botón</li>
+                    <li className="boton"><Link to={'/'}>Home</Link></li>
+                    <li className="boton"><Link to={'/function'}>Catalogo</Link></li>
+                    <li className="boton"><NavLink to={'/function'}>Solo uno</NavLink></li>
                 </ul>
                 <div>
                     <CartWidget/>
