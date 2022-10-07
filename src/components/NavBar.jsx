@@ -1,24 +1,19 @@
-import CartWidget from "./CartWidget"
+// import CartWidget from "./CartWidget"
 import {Link, NavLink } from 'react-router-dom'
 
 const NavBar = () => {
-
-    const handleClick = () => {
-        const mensaje = "Clickeaste este botón"
-        alert(mensaje)
-    }
 
     return (
         <div>
             <nav className="barraNavegacion">
                 <ul className="contenedorNav">
                     <li className="boton"><Link to={'/'}>Home</Link></li>
-                    <li className="boton"><Link to={'/function'}>Catalogo</Link></li>
-                    <li className="boton"><NavLink to={'/function'}>Solo uno</NavLink></li>
+                    <li className="boton"><Link to={`/human`}>Human</Link></li>
+                    <li className="boton"><NavLink to={'/alien'}>Alien</NavLink></li>
                 </ul>
-                <div>
+                {/* <div>
                     <CartWidget/>
-                </div>
+                </div> */}
             </nav>
         </div>
     )

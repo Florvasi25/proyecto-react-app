@@ -1,10 +1,9 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import Prueba from "./components/Prueba"
-import ItemListContainer from './components/ItemListContainer';
-
+import {ItemListContainer} from './components/ItemListContainer';
+import {CategoriesContainer} from './components/CategoriesContainer'
+import {DetailContainer} from './components/DetailContainer'
 
 function App() {
 
@@ -13,17 +12,17 @@ function App() {
             <NavBar/>
             <Routes>
                 <Route exact path='/' element={
-                    <Prueba/>
-                }/>
-                <Route exact path='/function' element={
                     <ItemListContainer/>
                 }/>
-                <Route exact path='/items/:id' element={
-                    <ItemListContainer/>
+                <Route exact path='/:id' element={
+                    <CategoriesContainer/>
+                }/>
+                <Route exact path='/item/:id' element={
+                    <DetailContainer/>
                 }/>
             </Routes>
         </BrowserRouter>
-      );
+    );
   }
 
 export default App;
