@@ -7,9 +7,9 @@ const NavBar = () => {
         <div>
             <nav className="barraNavegacion">
                 <ul className="contenedorNav">
-                    <li className="boton"><Link to={'/'}>Home</Link></li>
-                    <li className="boton"><Link to={`/human`}>Human</Link></li>
-                    <li className="boton"><NavLink to={'/alien'}>Alien</NavLink></li>
+                    <li><Link to={'/'} className="boton home">Home</Link></li>
+                    <li><Link to={`/human`} className="boton">Human</Link></li>
+                    <li><NavLink to={'/alien'} className="boton">Alien</NavLink></li>
                 </ul>
                 {/* <div>
                     <CartWidget/>
