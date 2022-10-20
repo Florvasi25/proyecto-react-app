@@ -119,3 +119,19 @@ p {
     justify-content: center;
 }
 
+.containerCardDetail {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-evenly;
+}
+
+.cardBodyDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botonAgregar {
+    margin: 20px 0
+    ;
+}
