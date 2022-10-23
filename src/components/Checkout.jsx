@@ -1,5 +1,5 @@
-export const Detail = ({card}) => {
-
+export const Checkout = ({card}) => {
+    
     return(
         <div className="containerCardDetail">
             <div>
@@ -13,7 +13,6 @@ export const Detail = ({card}) => {
                     <div className="botonesCantidad">
                         <button id="removeOne">-</button>COUNT<button id="addOne">+</button>
                     </div>
-                    <button className="botonAgregar" id="addToCart">AGREGAR AL CARRITO</button>
                 </div>
             </div>
         </div>

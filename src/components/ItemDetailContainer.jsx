@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Detail } from './Detail'
+import { ItemDetail } from './ItemDetail'
 
-export const DetailContainer = () => {
+export const ItemDetailContainer = () => {
 
     const [card, setCard] = useState()
     const {id} = useParams()
@@ -15,5 +15,5 @@ export const DetailContainer = () => {
             .catch((err) => console.log(err));
     },[id]);
 
-    return card ? <Detail card={card}/> : <h2>Cargando</h2>
+    return card ? <ItemDetail card={card}/> : <h2>Cargando</h2>
 }
