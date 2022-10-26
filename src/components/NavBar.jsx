@@ -1,6 +1,4 @@
-// import CartWidget from "./CartWidget"
-import {Link} from 'react-router-dom'
-import {CartWidget} from './CartWidget'
+import {Link, NavLink} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -26,25 +24,26 @@ export const NavBar = () => {
 
     },[]);
 
-    const {cart, calcularTotalCarrito, precioTotal} = useCartContext()
+    const {cart, calcularTotalCarrito} = useCartContext()
 
     return (
         <Navbar collapseOnSelect expand="lg" className='barraNavegacion' variant="dark">
             <Container>
+                <Link to="/"><Navbar.Brand href="#home">Inicio</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">           
                             <Nav className="me-auto">
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                            <NavDropdown title="Categorías" id="collasible-nav-dropdown">
                             {categorias.map((value) => {
-                                return <NavDropdown.Item key={value.key}>{value.name}</NavDropdown.Item>
+                                return <NavDropdown.Item key={value.key}><NavLink to={`/categoria/${value.name}`}>{value.name}</NavLink></NavDropdown.Item>
                             })}
                             </NavDropdown>
                         </Nav>
                 </Navbar.Collapse>
-                <Link to="/"><Navbar.Brand href="#home">Home</Navbar.Brand></Link>
-                <CartWidget/>
-                <p className="cantidad">{calcularTotalCarrito(cart)}</p>
-                {/* <p className="cantidad">Precio: {precioTotal(cart)}</p> */}
+                    
+                    <NavLink to="/cart"><img className="imagenCarrito" src="./imagenes/carrito.png" alt=""></img></NavLink>
+                    <p className="cantidad">{calcularTotalCarrito(cart)}</p>
+                    {/* <p className="cantidad">Precio: {precioTotal(cart)}</p> */}
             </Container>
         </Navbar>
     )

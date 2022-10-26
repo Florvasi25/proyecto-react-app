@@ -123,6 +123,7 @@ p {
     display: flex;
     margin-top: 50px;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .cardBodyDetail {
@@ -131,11 +132,69 @@ p {
     align-items: center;
 }
 
-.botonAgregar {
-    margin: 20px 0
-    ;
+.botonAgregar{
+    margin: 20px 0;
+    border: solid;
+    border-color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    text-decoration: none;
+    color: black;
+}
+
+.botonAgregar:hover {
+    background-color: black;
+    color: white;
+}
+
+.botonCount {
+    margin: 20px;
+    border: solid;
+    border-color: black;
+    padding: 2.5px 5px;
+    border-radius: 5px;
+    border-width: 1px;
+    text-decoration: none;
+    color: black;
 }
 
 .cantidad {
-    color: white;
+    color: black;
+    background-color: white;
+    padding: 0 10px;
+    margin: 0 10px;
+    border-radius: 10px;
 }
+
+.spinnerBootstrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 250px;
+}
+
+.tabla {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 25px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.tableImage {
+    max-width: 100%;
+    height: auto;
+}
+
+.colImage {
+    max-width: 250px;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+

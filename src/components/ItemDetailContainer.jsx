@@ -1,19 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { ItemDetail } from './ItemDetail'
+import {doc, getDoc, getFirestore} from 'firebase/firestore'
+import Spinner from 'react-bootstrap/Spinner';
 
 export const ItemDetailContainer = () => {
 
-    const [card, setCard] = useState()
     const {id} = useParams()
+    const [detalle, setDetalle] = useState()
+    
+    useEffect(() => {
 
-    useEffect(()=>{
-        const res = fetch(`https://rickandmortyapi.com/api/character/${id}`)
-        res
-            .then((res) => res.json())
-            .then((value) => setCard(value))
-            .catch((err) => console.log(err));
+        const db = getFirestore()
+
+        const data = doc(db, "items", id)
+        getDoc(data).then((value) => {
+            setDetalle({id: value.id, ...value.data()})
+        })
+
     },[id]);
 
-    return card ? <ItemDetail card={card}/> : <h2>Cargando</h2>
+    return detalle ? <ItemDetail item={detalle}/> : <div className="spinnerBootstrap"><Spinner animation="border" role="status"></Spinner></div>
 }

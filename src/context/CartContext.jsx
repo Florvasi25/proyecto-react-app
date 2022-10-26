@@ -7,25 +7,40 @@ export const useCartContext = () => useContext(CartContext);
 export const CartContextProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
+    const [count, setCount] = useState (1)
 
-    const agregarAlCarrito = (producto) => {
-        // let indexProductoAgregado = cart.some((p) => p.id === producto.id);
-        // if (indexProductoAgregado) {
-        //     cart[indexProductoAgregado].qty += 1;
+    const agregarAlCarrito = (producto, cantidad) => {
+
+        const copiaCart = [...cart]
+        const indexProductoAgregado = copiaCart.findIndex((p) => p.id === producto.id);
+        if (indexProductoAgregado !== -1) {
+            copiaCart[indexProductoAgregado].qty += cantidad;
+        } else {
+            producto.qty = cantidad;
+            copiaCart.push(producto);
+        }
+       
+        return setCart(copiaCart)
+       
+        // const nuevoCart = copiaCart.map((nuevo) => {
+        //     if (nuevo.id === producto.id) {
+        //         return {...nuevo, qty: nuevo.qty + cantidad}
+        //     } else {
+        //         return {...nuevo, qty: cantidad}
+        //     }
+        // });
+
+        // if (nuevoCart.length === 0) {
+        //     return setCart([{...producto, qty: cantidad}])
         // } else {
-            // producto.qty = 1;
-            // cart.push(producto);
         // }
-        const nuevoCart = [...cart, producto] 
-        console.log("agregarAlCarrito")
-        console.log(nuevoCart)
-        return setCart(nuevoCart)
+
     }
 
     const calcularTotalCarrito = () => {
         let totalProductos = 0;
         cart.forEach((producto) => {
-            totalProductos += 1 //producto.qty;
+            totalProductos += producto.qty;
         });
         return totalProductos;
     }
@@ -41,7 +56,21 @@ export const CartContextProvider = ({children}) => {
         // </div>`;
     }
 
-    return <CartContext.Provider value={{calcularTotalCarrito, precioTotal, agregarAlCarrito, cart}}>
+    const suma = () => {
+        return setCount(count + 1)
+    }
+
+    const resta = () => {
+        if (count !== 1) {
+            return setCount(count - 1)
+        }
+    }
+
+    const quitar = (producto) => {
+        const quitarElemento = cart.filter((elemento) => elemento.id !== producto.id)
+        return setCart(quitarElemento)
+    }
+    return <CartContext.Provider value={{calcularTotalCarrito, precioTotal, agregarAlCarrito, cart, suma, resta, count, quitar}}>
         {children}
     </CartContext.Provider>
 }
