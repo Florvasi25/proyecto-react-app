@@ -5,13 +5,11 @@ import Col from 'react-bootstrap/Col';
 
 export const CartWidget = () => {
 
-    const {cart, suma, resta, count, quitar} = useCartContext()
+    const {cart, suma, resta, quitar, precioTotal} = useCartContext()
 
     return(
         <Container fluid="lg">
             {cart.map((value) => {
-            console.log("Value:");
-            console.log(value);
             return <Row className="tabla">
                     <Col lg="3" className="colImage">
                         <img src={value.image} alt="" className="tableImage"/>
@@ -23,15 +21,15 @@ export const CartWidget = () => {
                     </Col>
                     <Col lg="2">                    
                         <div className="botonesCantidad">
-                        <button className="botonCount" onClick={resta}>-</button>{value.qty}<button className="botonCount" onClick={suma}>+</button>
+                        <button className="botonCount" onClick={() => resta(value)}>-</button>{value.qty}<button className="botonCount" onClick={() => suma(value)}>+</button>
                         </div>
                     </Col>
                     <Col lg="1">
-                        <h3>${value.price}</h3>
+                        <h3>${value.qty * value.price}</h3>
                     </Col>
                 </Row>
         })}
-        <h3 className="total">Total: $40000</h3>
+        <h3 className="total">Total: ${precioTotal()}</h3>
         </Container>
     )
 }

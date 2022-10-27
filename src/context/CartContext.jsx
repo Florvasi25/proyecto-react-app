@@ -7,7 +7,6 @@ export const useCartContext = () => useContext(CartContext);
 export const CartContextProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
-    const [count, setCount] = useState (1)
 
     const agregarAlCarrito = (producto, cantidad) => {
 
@@ -19,22 +18,7 @@ export const CartContextProvider = ({children}) => {
             producto.qty = cantidad;
             copiaCart.push(producto);
         }
-       
         return setCart(copiaCart)
-       
-        // const nuevoCart = copiaCart.map((nuevo) => {
-        //     if (nuevo.id === producto.id) {
-        //         return {...nuevo, qty: nuevo.qty + cantidad}
-        //     } else {
-        //         return {...nuevo, qty: cantidad}
-        //     }
-        // });
-
-        // if (nuevoCart.length === 0) {
-        //     return setCart([{...producto, qty: cantidad}])
-        // } else {
-        // }
-
     }
 
     const calcularTotalCarrito = () => {
@@ -48,29 +32,43 @@ export const CartContextProvider = ({children}) => {
     const precioTotal = () => {
         let precioTotal = 0;
         cart.forEach((producto) => {
-            precioTotal += 1 //producto.price * producto.qty;
+            precioTotal += producto.price * producto.qty;
         });
         return precioTotal
-        // document.getElementById("precioTotal").innerHTML = `<div>
-        //     <p class="total">TOTAL: $${precioTotal}</p>
-        // </div>`;
     }
 
-    const suma = () => {
-        return setCount(count + 1)
-    }
+    const suma = (producto) => {
+        console.log(producto);
+        const copiaCart = [...cart]
 
-    const resta = () => {
-        if (count !== 1) {
-            return setCount(count - 1)
+        const productoModificado = copiaCart.find((p) => p.id === producto.id);
+        if (productoModificado) {
+            productoModificado.qty ++
         }
+        return setCart(copiaCart)
+    }
+
+    const resta = (producto) => {
+        const copiaCart = [...cart]
+
+        const productoModificado = copiaCart.find((p) => p.id === producto.id);
+
+        if (productoModificado) {
+            if (producto.qty === 1) {
+                return quitar(producto)
+            } else {
+                productoModificado.qty --
+            }
+        }
+        return setCart(copiaCart)
     }
 
     const quitar = (producto) => {
         const quitarElemento = cart.filter((elemento) => elemento.id !== producto.id)
         return setCart(quitarElemento)
     }
-    return <CartContext.Provider value={{calcularTotalCarrito, precioTotal, agregarAlCarrito, cart, suma, resta, count, quitar}}>
+
+    return <CartContext.Provider value={{calcularTotalCarrito, precioTotal, agregarAlCarrito, cart, suma, resta, quitar}}>
         {children}
     </CartContext.Provider>
 }
