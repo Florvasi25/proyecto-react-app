@@ -4,7 +4,7 @@
 }
 
 .barraNavegacion {
-    background-color: #829cac;
+    background-color: #a200ff;
     width: 100%;
     height: 100px;
     display: flex;
@@ -21,7 +21,7 @@
 }
 
 .boton {
-    color: black;
+    color: #000000;
     list-style: none;
     cursor: pointer;
     margin: 0 30px;
@@ -33,7 +33,7 @@
 }
 
 .boton:hover{
-    background-color: black;
+    background-color: #000000;
     color: #829cac;
 }
 
@@ -57,6 +57,7 @@ li {
 }
 
 .containerCuerpoPrincipal {
+    margin: 50px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -74,6 +75,10 @@ li {
 }
 
 .containerCuerpoCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: calc(100vh - 100px - 125px);
 }
 
@@ -99,17 +104,18 @@ li {
 
 .botonCard {
     border: solid;
-    border-color: black;
+    border-color: #000000;
     padding: 5px 10px;
     border-radius: 5px;
     border-width: 1px;
     text-decoration: none;
-    color: black;
+    color: #000000;
+    background-color: #ad97ff;
 }
 
 .botonCard:hover{
-    background-color: black;
-    color: white;
+    background-color: #37008f;
+    color: #ffffff;
 }
 
 .botonCard.checkout{
@@ -118,7 +124,7 @@ li {
     color: red;
 }
 
-.botonCard.terminar{
+.botonCard.checkout{
     margin-top: 25px;
 }
 
@@ -128,7 +134,7 @@ li {
 }
 
 .terminar:hover:disabled{
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .containerImg {
@@ -153,7 +159,7 @@ li {
 
 .cardBody {
     border: solid;
-    border-color: black;
+    border-color: #000000;
     border-radius: 10px;
     border-width: 2px;
     margin: 15px;
@@ -164,7 +170,7 @@ li {
     height: 375px;
     width: 225px;
     padding: 15px;
-}
+    box-shadow: 5px 5px 9px 0px rgba(0,0,0,0.2);}
 
 .containerCard {
     display: flex;
@@ -183,7 +189,7 @@ li {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    background-color: rgb(228, 228, 228);
+    background-color: #aca4ff;
     padding: 0 25px;
     border-radius: 10px;
     width: 30%;
@@ -203,34 +209,42 @@ li {
 .botonAgregar{
     margin: 25px 0;
     border: solid;
-    border-color: black;
+    border-color: #000000;
     padding: 5px 10px;
     border-radius: 5px;
     border-width: 1px;
     text-decoration: none;
-    color: black;
+    color: #000000;
     font-size: 20px;
+    background-color:#ffffff;
+}
+
+.botonAgregar.checkout{
+    background-color: #a200ff;
+    color: #ffffff;
 }
 
 .botonAgregar:hover {
-    background-color: black;
-    color: white;
+    background-color: #37008f;
+    color: #fffdfd;
 }
+
 
 .botonCount {
     margin: 20px;
     border: solid;
-    border-color: black;
+    border-color: #000000;
     padding: 2.5px 5px;
     border-radius: 5px;
     border-width: 1px;
     text-decoration: none;
-    color: black;
+    color: #000000;
+    background-color: #ad97ff;
 }
 
 .cantidad {
-    color: black;
-    background-color: white;
+    color: #000000;
+    background-color: #ffffff;
     padding: 0 10px;
     margin: 0 10px;
     border-radius: 10px;
@@ -243,7 +257,7 @@ li {
     margin-top: 250px;
 }
 
-.tabla {
+.containerTabla {
     border-bottom: 1px solid #ddd;
     padding-bottom: 25px;
     width: 100%;
@@ -253,29 +267,48 @@ li {
     margin: 25px;
 }
 
+.containerBottomCart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-items: flex-end;
+}
+
 .tableImage {
-    max-width: 100%;
+    width: 75%;
     height: auto;
 }
 
 .colImage {
-    max-width: 250px;
+    height: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.total {
-    display: flex;
-    justify-content: flex-end;
+.cartTotal {
     padding-right: 50px;
     padding-bottom: 25px;
     border-bottom: 1px solid #ddd;
+    width: 100%;
+    text-align: end;
 }
 
 .footer {
     height: 100px;
     width: 100%;
-    background-color: #829cac;
+    background-color: #a200ff;
     bottom: 0;
     position: relative;
+    margin-top: 50px;
+}
+
+.botonesCantidad {
+    background-color: #d7c3ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
 .form {
@@ -296,3 +329,24 @@ li {
     width: 75%;
 }
 
+.containerTablaCheckout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.containerTablaDetalleCheckout{
+    height: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.colCheckout {
+    display: flex;
+    justify-content: center;
+}
+
+.cantidad {
+    background-color: #aca4ff;
+    padding: 10px 15px;
+}

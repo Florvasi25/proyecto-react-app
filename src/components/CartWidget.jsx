@@ -14,11 +14,11 @@ export const CartWidget = () => {
         return(
             <Container className="containerCuerpoCart">
                 {cart.map((value) => {
-                return <Row className="tabla">
+                return <Row className="containerTabla">
                     <Col lg="3" className="colImage">
                         <img src={value.image} alt="" className="tableImage"/>
                     </Col>
-                    <Col lg="6" className="colText">
+                    <Col lg="5" className="colText">
                         <h4>{value.name}</h4><br />
                         <button className="botonCard" onClick={() => quitar(value)}>Quitar</button>
                     </Col>
@@ -32,8 +32,8 @@ export const CartWidget = () => {
                     </Col>
                 </Row>
                 })}
-                <h3 className="cartTotal">Total: ${precioTotal()}</h3>
-                <button className="botonCard checkout"><Link to="/checkout">CONTINUAR COMPRA</Link></button>
+                    <h3 className="cartTotal">Total: ${precioTotal()}</h3>
+                    <Link to="/checkout"><button className="botonAgregar checkout">CONTINUAR COMPRA</button></Link>
             </Container>
         )
     }
