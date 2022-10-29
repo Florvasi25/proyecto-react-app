@@ -12,29 +12,28 @@ export const CartWidget = () => {
         return <p>ERROR</p>
     } else {
         return(
-            <Container fluid="lg" className="containerCuerpoPrincipal">
+            <Container className="containerCuerpoCart">
                 {cart.map((value) => {
                 return <Row className="tabla">
-                        <Col lg="3" className="colImage">
-                            <img src={value.image} alt="" className="tableImage"/>
-                        </Col>
-                        <Col lg="6" className="colText">
-                            <h4>{value.name}</h4><br />
-                            <p>{value.description}</p><br />
-                            <button className="botonCard" onClick={() => quitar(value)}>Quitar</button>
-                        </Col>
-                        <Col lg="2">                    
-                            <div className="botonesCantidad">
-                            <button className="botonCount" onClick={() => resta(value)}>-</button>{value.qty}<button className="botonCount" onClick={() => suma(value)}>+</button>
-                            </div>
-                        </Col>
-                        <Col lg="1">
-                            <h3>${value.qty * value.price}</h3>
-                        </Col>
-                    </Row>
-            })}
-            <h3 className="total">Total: ${precioTotal()}</h3>
-            <button className="botonCard checkout"><Link to="/checkout">CONTINUAR COMPRA</Link></button>
+                    <Col lg="3" className="colImage">
+                        <img src={value.image} alt="" className="tableImage"/>
+                    </Col>
+                    <Col lg="6" className="colText">
+                        <h4>{value.name}</h4><br />
+                        <button className="botonCard" onClick={() => quitar(value)}>Quitar</button>
+                    </Col>
+                    <Col lg="2">                    
+                        <div className="botonesCantidad">
+                        <button className="botonCount" onClick={() => resta(value)}>-</button>{value.qty}<button className="botonCount" onClick={() => suma(value)}>+</button>
+                        </div>
+                    </Col>
+                    <Col lg="1">
+                        <h3>${value.qty * value.price}</h3>
+                    </Col>
+                </Row>
+                })}
+                <h3 className="cartTotal">Total: ${precioTotal()}</h3>
+                <button className="botonCard checkout"><Link to="/checkout">CONTINUAR COMPRA</Link></button>
             </Container>
         )
     }

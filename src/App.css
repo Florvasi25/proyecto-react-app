@@ -57,25 +57,44 @@ li {
 }
 
 .containerCuerpoPrincipal {
-    margin: 25px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     justify-content: center;
+    align-items: center;
     position: relative;
     min-height: calc(100vh - 125px - 125px);
+}
+
+.containerDetalle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    min-height: calc(100vh - 150px - 150px);
+}
+
+.containerCuerpoCart {
+    min-height: calc(100vh - 100px - 125px);
 }
 
 .textoCard {
     overflow-wrap: break-word;
     text-align: center;
     font-size: 20px;
+    display: flex;
+    align-items: center;
 }
 
-.principal {
-    font-size: 25px;
-    font-weight: bolder;
-    font-variant-caps: all-small-caps;
+.textoCard.principal {
+    overflow-wrap: break-word;
+    text-align: center;
+    height: 100px;
+}
+
+.textoCard.precio {
+    height: 50px;
+    display: flex;
+    align-items: flex-start;
 }
 
 .botonCard {
@@ -112,9 +131,24 @@ li {
     background-color: white;
 }
 
+.containerImg {
+    display: flex;
+    justify-content: center;
+}
+
 .imgCard {
-    width: 100%;
-    block-size: auto;
+    object-fit: contain;
+    height: 150px;
+    width: 200px;
+}
+
+.containerTexto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
 }
 
 .cardBody {
@@ -127,9 +161,9 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 250px;
+    height: 375px;
+    width: 225px;
     padding: 15px;
-    height: 350px;
 }
 
 .containerCard {
@@ -144,14 +178,30 @@ li {
     align-items: center;
 }
 
-.cardBodyDetail {
+.containerBodyDetail {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: rgb(228, 228, 228);
+    padding: 0 25px;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.textoDetail {
+    font-size: 30px;
+    padding-bottom: 50px;
+}
+
+.textoDetailName {
+    margin-top: 25px;
+    font-size: 25px;
+    padding-bottom: 50px;
 }
 
 .botonAgregar{
-    margin: 20px 0;
+    margin: 25px 0;
     border: solid;
     border-color: black;
     padding: 5px 10px;
@@ -159,6 +209,7 @@ li {
     border-width: 1px;
     text-decoration: none;
     color: black;
+    font-size: 20px;
 }
 
 .botonAgregar:hover {
@@ -198,7 +249,8 @@ li {
     width: 100%;
     display: flex;
     align-items: center;
-    margin: 25px 0;
+    justify-content: center;
+    margin: 25px;
 }
 
 .tableImage {
@@ -232,3 +284,15 @@ li {
     justify-content: center;
     align-items: center;
 }
+
+.containerImgDetalle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+.imgCardDetalle {
+    width: 75%;
+}
+

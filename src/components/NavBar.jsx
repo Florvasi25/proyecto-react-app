@@ -32,11 +32,11 @@ export const NavBar = () => {
                 <Link to="/"><Navbar.Brand href="#home">Inicio</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">           
-                            <Nav className="me-auto">
+                        <Nav className="me-auto">
                             <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-                            {categorias.map((value) => {
-                                return <NavDropdown.Item key={value.key}><NavLink to={`/categoria/${value.name}`}>{value.name}</NavLink></NavDropdown.Item>
-                            })}
+                                {categorias.map((value) => {
+                                    return <NavDropdown.Item key={value.key}><NavLink to={`/categoria/${value.name}`}>{value.name}</NavLink></NavDropdown.Item>
+                                })}
                             </NavDropdown>
                         </Nav>
                     <NavLink to="/cart"><img className="imagenCarrito" src="../imagenes/carrito.png" alt=""></img></NavLink>

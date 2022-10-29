@@ -20,13 +20,14 @@ export const ItemDetail = ({item}) => {
     const [contador, setContador] = useState(1)
 
     return(
-        <div className="containerCuerpoPrincipal">
-            <div>
-                <img src={item.image} alt="" className="imgCard"></img>
+        <div className="containerDetalle">
+            <div className="containerImgDetalle">
+                <img src={item.image} alt="" className="imgCardDetalle"></img>
             </div>
-            <div className="cardBodyDetail">
-                <h1 className="textoCard principal">{item.name}</h1>
-                <h2>${item.price}</h2>
+            <div className="containerBodyDetail">
+                <h1 className="textoDetailName">{item.name}</h1>
+                <h2 className="textoDetail">${item.price}</h2>
+                <p>{item.description}</p>
                 <div className="botonesCantidad">
                     <button className="botonCount"  onClick={() => setContador(resta)}>-</button>{contador}<button className="botonCount"  onClick={() => setContador(suma)}>+</button>
                 </div>
