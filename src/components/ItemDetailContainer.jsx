@@ -15,10 +15,17 @@ export const ItemDetailContainer = () => {
 
         const data = doc(db, "items", id)
         getDoc(data).then((value) => {
-            setDetalle({id: value.id, ...value.data()})
+            if (value.exists()) {
+                setDetalle({id: value.id, ...value.data()})
+            } else {
+                return setDetalle(-1)
+            }
         })
-
     },[id]);
 
-    return detalle ? <ItemDetail item={detalle}/> : <div className="spinnerBootstrap"><Spinner animation="border" role="status"></Spinner></div>
+    if (detalle === -1) {
+        return <p>error</p>
+    } else {
+        return detalle ? <ItemDetail item={detalle}/> : <div className="spinnerBootstrap"><Spinner animation="border" role="status"></Spinner></div>
+    }
 }

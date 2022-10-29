@@ -39,11 +39,9 @@ export const NavBar = () => {
                             })}
                             </NavDropdown>
                         </Nav>
-                </Navbar.Collapse>
-                    
                     <NavLink to="/cart"><img className="imagenCarrito" src="../imagenes/carrito.png" alt=""></img></NavLink>
                     <p className="cantidad">{calcularTotalCarrito(cart)}</p>
-                    {/* <p className="cantidad">Precio: {precioTotal(cart)}</p> */}
+                </Navbar.Collapse>                    
             </Container>
         </Navbar>
     )
