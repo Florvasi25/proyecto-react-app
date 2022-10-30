@@ -7,7 +7,12 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartContextProvider = ({children}) => {
     
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) ?? [])
+
+    const actualizarCart = (newCart) => {
+        localStorage.setItem('cart', JSON.stringify(newCart))
+        return setCart(newCart)
+    }
 
     const agregarAlCarrito = (producto, cantidad) => {
 
@@ -19,7 +24,7 @@ export const CartContextProvider = ({children}) => {
             producto.qty = cantidad;
             copiaCart.push(producto);
         }
-        return setCart(copiaCart)
+        return actualizarCart(copiaCart)
     }
 
     const calcularTotalCarrito = () => {
@@ -46,7 +51,7 @@ export const CartContextProvider = ({children}) => {
         if (productoModificado) {
             productoModificado.qty ++
         }
-        return setCart(copiaCart)
+        return actualizarCart(copiaCart)
     }
 
     const resta = (producto) => {
@@ -61,16 +66,16 @@ export const CartContextProvider = ({children}) => {
                 productoModificado.qty --
             }
         }
-        return setCart(copiaCart)
+        return actualizarCart(copiaCart)
     }
 
     const quitar = (producto) => {
         const quitarElemento = cart.filter((elemento) => elemento.id !== producto.id)
-        return setCart(quitarElemento)
+        return actualizarCart(quitarElemento)
     }
 
     const vaciarCarrito = () => {
-        setCart([])
+        actualizarCart([])
     }
 
     return <CartContext.Provider value={{calcularTotalCarrito, precioTotal, agregarAlCarrito, cart, suma, resta, quitar, vaciarCarrito}}>

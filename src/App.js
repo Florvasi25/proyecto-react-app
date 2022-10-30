@@ -6,7 +6,6 @@ import {ItemDetailContainer} from './components/ItemDetailContainer';
 import {CartContextProvider} from './context/CartContext';
 import { CartWidget } from './components/CartWidget';
 import {Checkout} from './components/Checkout'
-import {Order} from './components/Order'
 
 function App() {
 
@@ -29,9 +28,6 @@ function App() {
                     }/>
                     <Route path='/checkout' element={
                         <Checkout/>
-                    }/>
-                    <Route path='/order' element={
-                        <Order/>
                     }/>
                 </Routes>
         </CartContextProvider>
