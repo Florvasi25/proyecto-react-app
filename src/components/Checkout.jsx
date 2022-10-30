@@ -59,6 +59,7 @@ export const Checkout = () => {
         if (orderId) {
             return (
                 <div className='containerError'>
+                    <img src="../imagenes/ordenCompleta.png" alt="" />
                     <h1 className="compra">¡Muchas gracias por su compra!</h1>
                     <h2 className='tituloError'>El código de orden es "{orderId}"</h2>
                     <Link to="/"><button className='botonCard'>Volver al Inicio</button></Link>
@@ -129,8 +130,7 @@ export const Checkout = () => {
                                     type="email"
                                     name="emailrepetition"
                                     value={inputs.emailrepetition || ''}
-                                    onChange={handleChange}
-                                    className="input"/>
+                                    onChange={handleChange}/>
                                 </div>
                             </div>
                             <div className="containerBoton">

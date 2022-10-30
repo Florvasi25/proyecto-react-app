@@ -33,9 +33,9 @@ export const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className='containerNav'>           
                         <Nav className="me-auto">
-                            <NavDropdown title="Categorías" className='tituloCategory'>
+                            <NavDropdown title="Categorías">
                                 {categorias.map((value) => {
-                                    return <div key={value.key} className="dropdown"><NavLink to={`/categoria/${value.name}`} className="dropdown">{value.name}</NavLink></div>
+                                    return <div key={value.key} className="dropdown"><Link to={`/categoria/${value.name}`} className="dropdown">{value.name}</Link></div>
                                 })}
                             </NavDropdown>
                         </Nav>

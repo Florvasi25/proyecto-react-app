@@ -24,7 +24,7 @@ export const CartWidget = () => {
                     <Col lg="3" className="colImage">
                         <img src={value.image} alt="" className="tableImage"/>
                     </Col>
-                    <Col lg="5" className="colText">
+                    <Col lg="5">
                         <h4>{value.name}</h4><br />
                         <button className="botonCard" onClick={() => quitar(value)}>Quitar</button>
                     </Col>

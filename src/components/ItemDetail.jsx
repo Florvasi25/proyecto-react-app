@@ -27,7 +27,7 @@ export const ItemDetail = ({item}) => {
             <div className="containerBodyDetail">
                 <h1 className="textoDetailName">{item.name}</h1>
                 <h2 className="textoDetail">${item.price}</h2>
-                <p className="descDetail">{item.description}</p>
+                <p>{item.description}</p>
                 <div className="botonesCantidad">
                     <button className="botonCount"  onClick={() => setContador(resta)}>-</button>{contador}<button className="botonCount"  onClick={() => setContador(suma)}>+</button>
                 </div>
