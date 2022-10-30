@@ -9,7 +9,13 @@ export const CartWidget = () => {
     const {cart, suma, resta, quitar, precioTotal} = useCartContext()
     
     if (cart.length === 0) {
-        return <p>ERROR</p>
+        return (
+            <div className='containerError'>
+                <img src="../imagenes/carritoVacio.png" alt="" />
+                <h2 className='tituloError'>El carrito está vacío</h2>
+                <Link to="/"><button className='botonCard'>Volver al Inicio</button></Link>
+            </div>
+        )
     } else {
         return(
             <Container className="containerCuerpoCart">

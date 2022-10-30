@@ -205,13 +205,13 @@ li {
 
 .textoDetail {
     font-size: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
 }
 
 .textoDetailName {
     margin-top: 25px;
     font-size: 25px;
-    padding-bottom: 50px;
+    padding-bottom: 25px;
 }
 
 .botonAgregar{
@@ -263,6 +263,7 @@ li {
     flex-direction: row;
     justify-content: center;
     margin-top: 250px;
+    color: #b978fa;
 }
 
 .containerTabla {
@@ -399,4 +400,26 @@ input {
 .dropdown {
     color: #000000;
     text-decoration: none;
+}
+
+.containerError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 70vh;
+}
+
+.cuatrocientos {
+    font-size: 100px;
+    color: #37008f;
+}
+
+.tituloError {
+    margin-bottom: 50px;
+}
+
+.compra {
+    margin-bottom: 50px;
 }

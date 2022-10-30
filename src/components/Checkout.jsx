@@ -3,6 +3,8 @@ import { useState } from "react";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner';
 
 export const Checkout = () => {
 
@@ -15,6 +17,7 @@ export const Checkout = () => {
         tel: ""
     });
     const [disableSumit, setDisableSubmit] = useState(true)
+
     
     const handleChange = (event) => {
         const name = event.target.name;
@@ -54,7 +57,17 @@ export const Checkout = () => {
     };
 
     if (cart.length === 0) {
-        return <p>ta vacio, rey</p>
+        if (orderId) {
+            return (
+                <div className='containerError'>
+                    <h1 className="compra">¡Muchas gracias por su compra!</h1>
+                    <h2 className='tituloError'>El código de orden es "{orderId}"</h2>
+                    <Link to="/"><button className='botonCard'>Volver al Inicio</button></Link>
+                </div>
+            )
+        } else {
+            return <div className="spinnerBootstrap"><Spinner animation="border" role="status"></Spinner></div>
+        }
     } else {
         return (
             <div>
@@ -123,7 +136,7 @@ export const Checkout = () => {
                             </div>
                             <div className="containerBoton">
                                 <button className="botonCard terminar" disabled={disableSumit}>TERMINAR COMPRA</button>
-                                {/* <p>OrderID: {orderId}</p> */}
+                                {/* <button className="botonCard terminar" disabled={disableSumit}>TERMINAR COMPRA</button> */}
                             </div>
                         </form>
                     </Col>
