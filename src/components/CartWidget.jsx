@@ -20,7 +20,7 @@ export const CartWidget = () => {
         return(
             <Container className="containerCuerpoCart">
                 {cart.map((value) => {
-                return <Row className="containerTabla">
+                return <Row className="containerTabla" key={value.id}>
                     <Col lg="3" className="colImage">
                         <img src={value.image} alt="" className="tableImage"/>
                     </Col>

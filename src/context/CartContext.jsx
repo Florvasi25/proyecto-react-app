@@ -44,7 +44,6 @@ export const CartContextProvider = ({children}) => {
     }
 
     const suma = (producto) => {
-        console.log(producto);
         const copiaCart = [...cart]
 
         const productoModificado = copiaCart.find((p) => p.id === producto.id);

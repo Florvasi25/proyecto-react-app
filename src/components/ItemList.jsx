@@ -6,7 +6,7 @@ export const ItemList = ({itemList}) => {
         <div className="containerCuerpoPrincipal">
             {itemList.map((value) => {
                 return (
-                    <div className="cardBody">
+                    <div className="cardBody" key={value.id}>
                         <div className="containerImg">
                             <img className="imgCard" src={value.image} alt=""/>
                         </div>

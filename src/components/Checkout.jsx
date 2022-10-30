@@ -40,7 +40,6 @@ export const Checkout = () => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(inputs);
         const order = {
             buyer: {name: inputs.username, tel: inputs.tel, email: inputs.email},
             items: cart,
@@ -75,7 +74,7 @@ export const Checkout = () => {
                 <Row className="containerTablaCheckout">
                     <Col lg="9">
                     {cart.map((value) => {
-                        return <Row className="containerTablaDetalleCheckout">
+                        return <Row className="containerTablaDetalleCheckout" key={value.id}>
                         <Col lg="3" className="colCheckout">
                             <img src={value.image} alt="" className="tableImage"/>
                         </Col>
@@ -94,7 +93,7 @@ export const Checkout = () => {
                     })}
                     <h3 className="checkoutTotal">Total: ${precioTotal()}</h3>
                     </Col>
-                    <Col fluid lg="3" className="containerForm">
+                    <Col fluid="lg" lg="3" className="containerForm">
                         <form onSubmit={handleSubmit}>
                             <div>
                                 <div>
@@ -136,7 +135,6 @@ export const Checkout = () => {
                             </div>
                             <div className="containerBoton">
                                 <button className="botonCard terminar" disabled={disableSumit}>TERMINAR COMPRA</button>
-                                {/* <button className="botonCard terminar" disabled={disableSumit}>TERMINAR COMPRA</button> */}
                             </div>
                         </form>
                     </Col>

@@ -35,7 +35,7 @@ export const NavBar = () => {
                         <Nav className="me-auto">
                             <NavDropdown title="Categorías" className='tituloCategory'>
                                 {categorias.map((value) => {
-                                    return <NavDropdown.Item key={value.key} className="dropdown"><NavLink to={`/categoria/${value.name}`} className="dropdown">{value.name}</NavLink></NavDropdown.Item>
+                                    return <div key={value.key} className="dropdown"><NavLink to={`/categoria/${value.name}`} className="dropdown">{value.name}</NavLink></div>
                                 })}
                             </NavDropdown>
                         </Nav>
