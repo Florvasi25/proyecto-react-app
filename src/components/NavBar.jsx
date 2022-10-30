@@ -29,18 +29,18 @@ export const NavBar = () => {
     return (
         <Navbar collapseOnSelect expand="lg" className='barraNavegacion' variant="dark">
             <Container>
-                <Link to="/"><Navbar.Brand href="#home">Inicio</Navbar.Brand></Link>
+                <Link to="/" className='tituloNav'><Navbar.Brand>Inicio</Navbar.Brand></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">           
+                <Navbar.Collapse className='containerNav'>           
                         <Nav className="me-auto">
-                            <NavDropdown title="Categorías" id="collasible-nav-dropdown">
+                            <NavDropdown title="Categorías" className='tituloCategory'>
                                 {categorias.map((value) => {
-                                    return <NavDropdown.Item key={value.key}><NavLink to={`/categoria/${value.name}`}>{value.name}</NavLink></NavDropdown.Item>
+                                    return <NavDropdown.Item key={value.key} className="dropdown"><NavLink to={`/categoria/${value.name}`} className="dropdown">{value.name}</NavLink></NavDropdown.Item>
                                 })}
                             </NavDropdown>
                         </Nav>
-                    <NavLink to="/cart"><img className="imagenCarrito" src="../imagenes/carrito.png" alt=""></img></NavLink>
-                    <p className="cantidad">{calcularTotalCarrito(cart)}</p>
+                        <NavLink to="/cart"><img className="imagenCarrito" src="../imagenes/carrito.png" alt=""></img></NavLink>
+                        <p className="cantidadNav">{calcularTotalCarrito(cart)}</p>
                 </Navbar.Collapse>                    
             </Container>
         </Navbar>

@@ -6,7 +6,6 @@ import {ItemDetailContainer} from './components/ItemDetailContainer';
 import {CartContextProvider} from './context/CartContext';
 import { CartWidget } from './components/CartWidget';
 import {Checkout} from './components/Checkout'
-import {Footer} from './components/Footer'
 
 function App() {
 
@@ -33,7 +32,6 @@ function App() {
                     }>
                     </Route>
                 </Routes>
-                <Footer/>
         </CartContextProvider>
         </BrowserRouter>
     );
