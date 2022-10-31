@@ -17,11 +17,6 @@
     text-decoration: none;
 }
 
-.navbar-brand {
-    margin: 0 15px;
-}
-
-
 .containerNav {
     padding-inline-start: 0;
     align-items: center;
@@ -186,7 +181,8 @@
 }
 
 .imgCardDetalle {
-    width: 75%;
+    min-height: 30%;
+    padding-right: 50px;
 }
 
 .containerBodyDetail {
